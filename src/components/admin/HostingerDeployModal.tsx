@@ -11,7 +11,8 @@ import {
   ShieldCheck,
   CheckCircle2,
   FileCode,
-  Layers
+  Layers,
+  Database
 } from 'lucide-react';
 
 interface HostingerDeployModalProps {
@@ -20,7 +21,7 @@ interface HostingerDeployModalProps {
 }
 
 export const HostingerDeployModal: React.FC<HostingerDeployModalProps> = ({ isOpen, onClose }) => {
-  const [activeDeployMethod, setActiveDeployMethod] = useState<'shared' | 'vps' | 'github'>('github');
+  const [activeDeployMethod, setActiveDeployMethod] = useState<'shared' | 'vps' | 'github' | 'supabase'>('github');
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   if (!isOpen) return null;
@@ -85,7 +86,7 @@ export const HostingerDeployModal: React.FC<HostingerDeployModalProps> = ({ isOp
         {/* Deploy Method Selector */}
         <div className="p-6 space-y-6 flex-1">
           
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <button
               onClick={() => setActiveDeployMethod('github')}
               className={`p-4 rounded-2xl border text-left cursor-pointer transition-all flex items-start gap-3 ${
@@ -99,8 +100,26 @@ export const HostingerDeployModal: React.FC<HostingerDeployModalProps> = ({ isOp
               </div>
               <div className="space-y-0.5">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block">Export Gratis</span>
-                <strong className="text-xs font-bold text-white block">Deploy / Export ke GitHub</strong>
-                <p className="text-[11px] text-slate-400">Sync repo langsung dari menu AI Studio / Push via Terminal.</p>
+                <strong className="text-xs font-bold text-white block">Deploy ke GitHub</strong>
+                <p className="text-[11px] text-slate-400">Sync repo langsung dari menu AI Studio / CLI.</p>
+              </div>
+            </button>
+
+            <button
+              onClick={() => setActiveDeployMethod('supabase')}
+              className={`p-4 rounded-2xl border text-left cursor-pointer transition-all flex items-start gap-3 ${
+                activeDeployMethod === 'supabase'
+                  ? 'bg-teal-500/10 border-teal-500 text-white shadow-lg'
+                  : 'bg-slate-800/40 border-slate-800 text-slate-400 hover:border-slate-700'
+              }`}
+            >
+              <div className="p-2.5 bg-slate-800 rounded-xl text-teal-400 shrink-0">
+                <Database className="w-5 h-5" />
+              </div>
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-teal-400 block">Database</span>
+                <strong className="text-xs font-bold text-white block">Supabase Export SQL</strong>
+                <p className="text-[11px] text-slate-400">Skema PostgreSQL & data siap dipasang di Supabase.</p>
               </div>
             </button>
 
@@ -117,8 +136,8 @@ export const HostingerDeployModal: React.FC<HostingerDeployModalProps> = ({ isOp
               </div>
               <div className="space-y-0.5">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-orange-400 block">Web Hosting</span>
-                <strong className="text-xs font-bold text-white block">Hostinger Shared / Cloud</strong>
-                <p className="text-[11px] text-slate-400">Upload folder dist/ ke hPanel File Manager.</p>
+                <strong className="text-xs font-bold text-white block">Hostinger Shared</strong>
+                <p className="text-[11px] text-slate-400">Upload dist/ ke hPanel File Manager.</p>
               </div>
             </button>
 
@@ -135,8 +154,8 @@ export const HostingerDeployModal: React.FC<HostingerDeployModalProps> = ({ isOp
               </div>
               <div className="space-y-0.5">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-400 block">Full Server</span>
-                <strong className="text-xs font-bold text-white block">Hostinger VPS Node.js</strong>
-                <p className="text-[11px] text-slate-400">Eksekusi PM2, Express server & Nginx SSL.</p>
+                <strong className="text-xs font-bold text-white block">Hostinger VPS Node</strong>
+                <p className="text-[11px] text-slate-400">Eksekusi PM2, Express server & Nginx.</p>
               </div>
             </button>
           </div>
@@ -198,6 +217,118 @@ export const HostingerDeployModal: React.FC<HostingerDeployModalProps> = ({ isOp
                 <p className="text-xs text-slate-300 leading-relaxed">
                   Repositori ini sudah dilengkapi file <code className="text-emerald-400 font-mono">.github/workflows/deploy.yml</code> yang siap menguji &amp; membangun file produksi secara otomatis setiap kali Anda melakukan <code className="text-emerald-400 font-mono">git push</code>.
                 </p>
+              </div>
+
+            </div>
+          )}
+
+          {/* METHOD 0.5: SUPABASE DATABASE EXPORT & MIGRATION */}
+          {activeDeployMethod === 'supabase' && (
+            <div className="space-y-6 animate-in fade-in duration-300">
+              
+              <div className="bg-slate-800/60 rounded-2xl p-5 border border-slate-700/80 space-y-4">
+                <h3 className="font-bold text-base text-white font-poppins flex items-center gap-2">
+                  <span className="w-6 h-6 bg-teal-500 text-white text-xs rounded-full flex items-center justify-center font-bold">1</span>
+                  Panduan Ekspor Database ke Supabase PostgreSQL
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Anda dapat memindahkan seluruh struktur data aplikasi Karental (Mobil, Kategori, Kota, Booking, Blog, Voucher, dan Setting) ke <strong>Supabase</strong> dengan 3 langkah cepat:
+                </p>
+                <ol className="list-decimal list-inside text-xs text-slate-300 space-y-2 leading-relaxed bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+                  <li>Buka <a href="https://supabase.com" target="_blank" rel="noreferrer" className="text-teal-400 underline font-semibold">Supabase Dashboard</a> lalu buat / pilih Project Anda.</li>
+                  <li>Masuk ke menu <strong>SQL Editor</strong> di sidebar sebelah kiri Supabase.</li>
+                  <li>Salin dan Tempelkan skema SQL PostgreSQL di bawah ini, lalu klik <strong>Run</strong>.</li>
+                </ol>
+              </div>
+
+              <div className="bg-slate-800/60 rounded-2xl p-5 border border-slate-700/80 space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-bold text-base text-white font-poppins flex items-center gap-2">
+                    <span className="w-6 h-6 bg-teal-500 text-white text-xs rounded-full flex items-center justify-center font-bold">2</span>
+                    Skema SQL Lengkap (PostgreSQL / Supabase)
+                  </h3>
+                  <button
+                    onClick={() => copyToClipboard(`-- Karental App Supabase Schema
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE IF NOT EXISTS categories (
+    id TEXT PRIMARY KEY DEFAULT uuid_generate_v4()::text,
+    name VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    description TEXT,
+    icon VARCHAR(100),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS cities (
+    id TEXT PRIMARY KEY DEFAULT uuid_generate_v4()::text,
+    name VARCHAR(255) NOT NULL,
+    province VARCHAR(255) NOT NULL,
+    airport VARCHAR(255),
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS cars (
+    id TEXT PRIMARY KEY DEFAULT uuid_generate_v4()::text,
+    name VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    brand VARCHAR(100) NOT NULL,
+    model VARCHAR(100) NOT NULL,
+    year INT NOT NULL,
+    category_id TEXT REFERENCES categories(id) ON DELETE SET NULL,
+    city_id TEXT REFERENCES cities(id) ON DELETE SET NULL,
+    price_per_day NUMERIC(12, 2) NOT NULL,
+    price_with_driver NUMERIC(12, 2),
+    seats INT DEFAULT 5,
+    transmission VARCHAR(50) DEFAULT 'Automatic',
+    fuel_type VARCHAR(50) DEFAULT 'Bensin',
+    image_url TEXT,
+    gallery JSONB DEFAULT '[]'::jsonb,
+    features JSONB DEFAULT '[]'::jsonb,
+    is_available BOOLEAN DEFAULT TRUE,
+    is_popular BOOLEAN DEFAULT FALSE,
+    rating NUMERIC(3, 2) DEFAULT 5.0,
+    trips_completed INT DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS bookings (
+    id TEXT PRIMARY KEY DEFAULT uuid_generate_v4()::text,
+    booking_code VARCHAR(50) UNIQUE NOT NULL,
+    car_id TEXT REFERENCES cars(id) ON DELETE CASCADE,
+    car_name VARCHAR(255) NOT NULL,
+    customer_name VARCHAR(255) NOT NULL,
+    customer_email VARCHAR(255) NOT NULL,
+    customer_phone VARCHAR(50) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    pickup_date DATE NOT NULL,
+    return_date DATE NOT NULL,
+    duration_days INT NOT NULL,
+    rental_type VARCHAR(50) DEFAULT 'with-driver',
+    total_price NUMERIC(12, 2) NOT NULL,
+    status VARCHAR(50) DEFAULT 'Pending',
+    payment_status VARCHAR(50) DEFAULT 'Unpaid',
+    notes TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);`, 'cmd-sql')}
+                    className="px-3 py-1.5 bg-teal-500 hover:bg-teal-600 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md"
+                  >
+                    {copiedId === 'cmd-sql' ? <Check className="w-4 h-4 text-white" /> : <Copy className="w-4 h-4" />}
+                    {copiedId === 'cmd-sql' ? 'SQL Tersalin!' : 'Salin Skema SQL'}
+                  </button>
+                </div>
+
+                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-teal-400 overflow-x-auto max-h-60 overflow-y-auto">
+                  <p className="text-slate-500 mb-2">// File tersimpan di: /supabase_schema.sql</p>
+                  <pre className="whitespace-pre-wrap text-[11px] leading-relaxed text-slate-300">
+{`CREATE TABLE categories (id TEXT PRIMARY KEY, name VARCHAR, slug VARCHAR UNIQUE, description TEXT);
+CREATE TABLE cities (id TEXT PRIMARY KEY, name VARCHAR, province VARCHAR, is_active BOOLEAN);
+CREATE TABLE cars (id TEXT PRIMARY KEY, name VARCHAR, slug VARCHAR UNIQUE, price_per_day NUMERIC, price_with_driver NUMERIC, seats INT, transmission VARCHAR, fuel_type VARCHAR, features JSONB);
+CREATE TABLE bookings (id TEXT PRIMARY KEY, booking_code VARCHAR UNIQUE, customer_name VARCHAR, customer_phone VARCHAR, city VARCHAR, pickup_date DATE, return_date DATE, total_price NUMERIC, status VARCHAR);
+CREATE TABLE settings (id VARCHAR PRIMARY KEY, site_name VARCHAR, whatsapp_number VARCHAR, theme_color VARCHAR);`}
+                  </pre>
+                </div>
               </div>
 
             </div>

@@ -38,6 +38,7 @@ export const HomePage: React.FC = () => {
   } = useApp();
 
   // Quick Search Form State
+  const [rentalType, setRentalType] = useState<'self-drive' | 'with-driver'>('with-driver');
   const [selectedCity, setSelectedCity] = useState('Jakarta');
   const [categoryFilter, setCategoryFilter] = useState('Semua');
   const [pickupDate, setPickupDate] = useState('2026-08-10');
@@ -45,6 +46,22 @@ export const HomePage: React.FC = () => {
 
   // FAQ Active Accordion
   const [activeFaq, setActiveFaq] = useState<string | null>('faq-1');
+
+  // Live Activity Stream Index
+  const [activeTickerIndex, setActiveTickerIndex] = useState(0);
+  const liveActivities = [
+    { name: 'Bpk. Hendra S.', car: 'Toyota Alphard Transformer', city: 'Jakarta', time: '2 menit yang lalu' },
+    { name: 'Ibu Rina W.', car: 'Innova Zenix Hybrid Q', city: 'Surabaya', time: '5 menit yang lalu' },
+    { name: 'PT Nusantara Jaya', car: 'Mercedes-Benz E-Class', city: 'Bali', time: '12 menit yang lalu' },
+    { name: 'Bpk. Aris K.', car: 'Toyota Fortuner GR Sport', city: 'Bandung', time: '18 menit yang lalu' },
+  ];
+
+  useEffect(() => {
+    const tickerTimer = setInterval(() => {
+      setActiveTickerIndex(prev => (prev + 1) % liveActivities.length);
+    }, 4000);
+    return () => clearInterval(tickerTimer);
+  }, []);
 
   // Ticking Promo Countdown
   const [timeLeft, setTimeLeft] = useState({ hours: 14, minutes: 32, seconds: 45 });
@@ -116,14 +133,47 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* QUICK BOOKING SEARCH BAR FORM */}
-          <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-slate-200/80 dark:border-slate-800 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-              <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2 font-poppins">
-                <Search className="w-4 h-4 text-[var(--theme-color)]" /> Cari & Reservasi Armada Cepat
-              </span>
-              <span className="text-xs text-slate-500">
-                Garansi Unit Bersih & Prima
-              </span>
+          <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-slate-200/80 dark:border-slate-800 space-y-5">
+            
+            {/* Top Bar with Mode Switcher & Ticker */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+              
+              {/* Mode Tabs */}
+              <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800/80 p-1.5 rounded-2xl">
+                <button
+                  onClick={() => setRentalType('with-driver')}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                    rentalType === 'with-driver'
+                      ? 'bg-[var(--theme-color)] text-white shadow-md'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                  }`}
+                >
+                  <Users className="w-3.5 h-3.5" />
+                  <span>Sewa + Sopir Professional</span>
+                </button>
+
+                <button
+                  onClick={() => setRentalType('self-drive')}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                    rentalType === 'self-drive'
+                      ? 'bg-[var(--theme-color)] text-white shadow-md'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                  }`}
+                >
+                  <CarIcon className="w-3.5 h-3.5" />
+                  <span>Sewa Lepas Kunci</span>
+                </button>
+              </div>
+
+              {/* Live Booking Ticker */}
+              <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 px-3 py-1.5 rounded-2xl flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0" />
+                <span className="font-semibold text-slate-900 dark:text-white">Live:</span>
+                <span className="truncate max-w-[280px]">
+                  <strong>{liveActivities[activeTickerIndex].name}</strong> sewa {liveActivities[activeTickerIndex].car} ({liveActivities[activeTickerIndex].city}) • {liveActivities[activeTickerIndex].time}
+                </span>
+              </div>
+
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
