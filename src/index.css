@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+:root {
+  --theme-color: #fe7938;
+}

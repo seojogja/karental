@@ -1,0 +1,58 @@
+--- src/context/AppContext.tsx
++++ src/context/AppContext.tsx
+@@ -16,5 +16,5 @@
+   whatsappLogs: WhatsAppLog[];
+   drivers: Driver[];
+-  FAQS: FAQItem[];
+-  REVIEWS: ReviewItem[];
+-  BLOGS: BlogArticle[];
++  faqs: FAQItem[];
++  reviews: ReviewItem[];
++  blogs: BlogArticle[];
+   selectedCarForBooking: Car | null;
+@@ -37,2 +37,18 @@
+   deleteCar: (id: string) => Promise<void>;
++  addCity: (city: CityPageData) => Promise<void>;
++  deleteCity: (slug: string) => Promise<void>;
++  addPromo: (promo: Promo) => Promise<void>;
++  updatePromo: (promo: Promo) => Promise<void>;
++  deletePromo: (id: string) => Promise<void>;
++  addBlog: (blog: BlogArticle) => Promise<void>;
++  updateBlog: (blog: BlogArticle) => Promise<void>;
++  deleteBlog: (id: string) => Promise<void>;
++  addReview: (review: ReviewItem) => Promise<void>;
++  updateReview: (review: ReviewItem) => Promise<void>;
++  deleteReview: (id: string) => Promise<void>;
++  addFaq: (faq: FAQItem) => Promise<void>;
++  updateFaq: (faq: FAQItem) => Promise<void>;
++  deleteFaq: (id: string) => Promise<void>;
+   toastMessage: string | null;
+@@ -49,2 +65,5 @@
+   const [cities, setCities] = useState<CityPageData[]>(CITY_PAGES);
+   const [promos, setPromos] = useState<Promo[]>(PROMOS);
++  const [faqs, setFaqs] = useState<FAQItem[]>(FAQS);
++  const [reviews, setReviews] = useState<ReviewItem[]>(REVIEWS);
++  const [blogs, setBlogs] = useState<BlogArticle[]>(BLOGS);
+   const [bookings, setBookings] = useState<Booking[]>([]);
+@@ -83,16 +102,22 @@
+     try {
+-      const [carsRes, citiesRes, promosRes, bookingsRes, waRes, driversRes] = await Promise.all([
++      const [carsRes, citiesRes, promosRes, bookingsRes, waRes, driversRes, faqsRes, revsRes, blogsRes] = await Promise.all([
+         fetch('/api/cars').then(r => r.json()),
+         fetch('/api/cities').then(r => r.json()),
+         fetch('/api/promos').then(r => r.json()),
+         fetch('/api/bookings').then(r => r.json()),
+         fetch('/api/whatsapp-logs').then(r => r.json()),
+-        fetch('/api/drivers').then(r => r.json())
++        fetch('/api/drivers').then(r => r.json()),
++        fetch('/api/faqs').then(r => r.json()),
++        fetch('/api/reviews').then(r => r.json()),
++        fetch('/api/blogs').then(r => r.json())
+       ]);
+       if (Array.isArray(carsRes) && carsRes.length > 0) setCars(carsRes);
+       if (Array.isArray(citiesRes) && citiesRes.length > 0) setCities(citiesRes);
+       if (Array.isArray(promosRes) && promosRes.length > 0) setPromos(promosRes);
++      if (Array.isArray(faqsRes) && faqsRes.length > 0) setFaqs(faqsRes);
++      if (Array.isArray(revsRes) && revsRes.length > 0) setReviews(revsRes);
++      if (Array.isArray(blogsRes) && blogsRes.length > 0) setBlogs(blogsRes);
+       if (Array.isArray(bookingsRes)) setBookings(bookingsRes);

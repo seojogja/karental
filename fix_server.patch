@@ -1,0 +1,64 @@
+--- server.ts
++++ server.ts
+@@ -5,6 +5,7 @@
+ import { INITIAL_CARS, CITY_PAGES, PROMOS, REVIEWS, FAQS, BLOGS, DRIVERS } from './src/data/mockData.js';
+-import { Car, Booking, CityPageData, Promo, WhatsAppLog, Driver } from './src/types.js';
++import { Car, Booking, CityPageData, Promo, WhatsAppLog, Driver, ReviewItem, FAQItem, BlogArticle } from './src/types.js';
+ 
+ const app = express();
+@@ -16,2 +17,5 @@
+ let promosStore: Promo[] = [...PROMOS];
++let reviewsStore: ReviewItem[] = [...REVIEWS];
++let faqsStore: FAQItem[] = [...FAQS];
++let blogsStore: BlogArticle[] = [...BLOGS];
+ let driversStore: Driver[] = [...DRIVERS];
+@@ -188,2 +192,57 @@
+ 
++app.delete('/api/cities/:slug', (req, res) => {
++  citiesStore = citiesStore.filter(c => c.slug !== req.params.slug);
++  res.json({ success: true });
++});
++
++// Blogs API
++app.get('/api/blogs', (req, res) => res.json(blogsStore));
++app.post('/api/blogs', (req, res) => {
++  const newBlog = { ...req.body, id: req.body.id || 'blog-' + Date.now() };
++  const idx = blogsStore.findIndex(b => b.id === newBlog.id);
++  if (idx !== -1) blogsStore[idx] = newBlog;
++  else blogsStore.unshift(newBlog);
++  res.status(201).json(newBlog);
++});
++app.delete('/api/blogs/:id', (req, res) => {
++  blogsStore = blogsStore.filter(b => b.id !== req.params.id);
++  res.json({ success: true });
++});
++
++// Reviews API
++app.get('/api/reviews', (req, res) => res.json(reviewsStore));
++app.post('/api/reviews', (req, res) => {
++  const newReview = { ...req.body, id: req.body.id || 'review-' + Date.now() };
++  const idx = reviewsStore.findIndex(b => b.id === newReview.id);
++  if (idx !== -1) reviewsStore[idx] = newReview;
++  else reviewsStore.unshift(newReview);
++  res.status(201).json(newReview);
++});
++app.delete('/api/reviews/:id', (req, res) => {
++  reviewsStore = reviewsStore.filter(b => b.id !== req.params.id);
++  res.json({ success: true });
++});
++
++// FAQs API
++app.get('/api/faqs', (req, res) => res.json(faqsStore));
++app.post('/api/faqs', (req, res) => {
++  const newFaq = { ...req.body, id: req.body.id || 'faq-' + Date.now() };
++  const idx = faqsStore.findIndex(b => b.id === newFaq.id);
++  if (idx !== -1) faqsStore[idx] = newFaq;
++  else faqsStore.unshift(newFaq);
++  res.status(201).json(newFaq);
++});
++app.delete('/api/faqs/:id', (req, res) => {
++  faqsStore = faqsStore.filter(b => b.id !== req.params.id);
++  res.json({ success: true });
++});
++
+ // Promos API
