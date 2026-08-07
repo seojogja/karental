@@ -20,7 +20,7 @@ interface HostingerDeployModalProps {
 }
 
 export const HostingerDeployModal: React.FC<HostingerDeployModalProps> = ({ isOpen, onClose }) => {
-  const [activeDeployMethod, setActiveDeployMethod] = useState<'shared' | 'vps'>('shared');
+  const [activeDeployMethod, setActiveDeployMethod] = useState<'shared' | 'vps' | 'github'>('github');
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   if (!isOpen) return null;
@@ -66,10 +66,10 @@ export const HostingerDeployModal: React.FC<HostingerDeployModalProps> = ({ isOp
             </div>
             <div>
               <h2 className="text-xl font-black font-poppins text-white">
-                Panduan Deploy ke Hostinger
+                Panduan Export & Deploy (GitHub & Hostinger)
               </h2>
               <p className="text-xs text-slate-400">
-                Langkah resmi publikasi aplikasi Karental di Hostinger Web Hosting & VPS
+                Langkah resmi ekspor ke GitHub repository dan publikasi web di Hostinger
               </p>
             </div>
           </div>
@@ -85,43 +85,123 @@ export const HostingerDeployModal: React.FC<HostingerDeployModalProps> = ({ isOp
         {/* Deploy Method Selector */}
         <div className="p-6 space-y-6 flex-1">
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button
+              onClick={() => setActiveDeployMethod('github')}
+              className={`p-4 rounded-2xl border text-left cursor-pointer transition-all flex items-start gap-3 ${
+                activeDeployMethod === 'github'
+                  ? 'bg-emerald-500/10 border-emerald-500 text-white shadow-lg'
+                  : 'bg-slate-800/40 border-slate-800 text-slate-400 hover:border-slate-700'
+              }`}
+            >
+              <div className="p-2.5 bg-slate-800 rounded-xl text-emerald-400 shrink-0">
+                <FileCode className="w-5 h-5" />
+              </div>
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block">Export Gratis</span>
+                <strong className="text-xs font-bold text-white block">Deploy / Export ke GitHub</strong>
+                <p className="text-[11px] text-slate-400">Sync repo langsung dari menu AI Studio / Push via Terminal.</p>
+              </div>
+            </button>
+
             <button
               onClick={() => setActiveDeployMethod('shared')}
-              className={`p-5 rounded-2xl border text-left cursor-pointer transition-all flex items-start gap-4 ${
+              className={`p-4 rounded-2xl border text-left cursor-pointer transition-all flex items-start gap-3 ${
                 activeDeployMethod === 'shared'
                   ? 'bg-orange-500/10 border-[var(--theme-color)] text-white shadow-lg'
                   : 'bg-slate-800/40 border-slate-800 text-slate-400 hover:border-slate-700'
               }`}
             >
-              <div className="p-3 bg-slate-800 rounded-xl text-orange-400 shrink-0">
-                <CloudUpload className="w-6 h-6" />
+              <div className="p-2.5 bg-slate-800 rounded-xl text-orange-400 shrink-0">
+                <CloudUpload className="w-5 h-5" />
               </div>
-              <div className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-orange-400 block">Metode 1 (Rekomendasi Cepat)</span>
-                <strong className="text-sm font-bold text-white block">Hostinger Shared / Cloud Hosting</strong>
-                <p className="text-xs text-slate-400">Paling mudah tanpa manage server. Upload hasil build dist/ ke File Manager hPanel.</p>
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-orange-400 block">Web Hosting</span>
+                <strong className="text-xs font-bold text-white block">Hostinger Shared / Cloud</strong>
+                <p className="text-[11px] text-slate-400">Upload folder dist/ ke hPanel File Manager.</p>
               </div>
             </button>
 
             <button
               onClick={() => setActiveDeployMethod('vps')}
-              className={`p-5 rounded-2xl border text-left cursor-pointer transition-all flex items-start gap-4 ${
+              className={`p-4 rounded-2xl border text-left cursor-pointer transition-all flex items-start gap-3 ${
                 activeDeployMethod === 'vps'
                   ? 'bg-indigo-500/10 border-indigo-500 text-white shadow-lg'
                   : 'bg-slate-800/40 border-slate-800 text-slate-400 hover:border-slate-700'
               }`}
             >
-              <div className="p-3 bg-slate-800 rounded-xl text-indigo-400 shrink-0">
-                <Server className="w-6 h-6" />
+              <div className="p-2.5 bg-slate-800 rounded-xl text-indigo-400 shrink-0">
+                <Server className="w-5 h-5" />
               </div>
-              <div className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 block">Metode 2 (Full-Stack Node Server)</span>
-                <strong className="text-sm font-bold text-white block">Hostinger VPS (KVM / Ubuntu)</strong>
-                <p className="text-xs text-slate-400">Untuk performa Express server penuh, PM2 process manager, & Nginx reverse proxy.</p>
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-400 block">Full Server</span>
+                <strong className="text-xs font-bold text-white block">Hostinger VPS Node.js</strong>
+                <p className="text-[11px] text-slate-400">Eksekusi PM2, Express server & Nginx SSL.</p>
               </div>
             </button>
           </div>
+
+          {/* METHOD 0: EXPORT / DEPLOY TO GITHUB */}
+          {activeDeployMethod === 'github' && (
+            <div className="space-y-6 animate-in fade-in duration-300">
+              
+              <div className="bg-slate-800/60 rounded-2xl p-5 border border-slate-700/80 space-y-4">
+                <h3 className="font-bold text-base text-white font-poppins flex items-center gap-2">
+                  <span className="w-6 h-6 bg-emerald-500 text-white text-xs rounded-full flex items-center justify-center font-bold">1</span>
+                  Metode Instant: Export Langsung dari Google AI Studio UI (1-Klik)
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Cara paling praktis tanpa perlu menginstal Git di komputer lokal:
+                </p>
+                <ol className="list-decimal list-inside text-xs text-slate-300 space-y-2 leading-relaxed bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+                  <li>Klik tombol ikon <strong>Settings / Titik Tiga (⚙️)</strong> di pojok kanan atas layar Google AI Studio.</li>
+                  <li>Pilih menu <strong>Export Code</strong> &gt; <strong>Export to GitHub Repository</strong>.</li>
+                  <li>Otorisasi akun GitHub Anda (jika belum terhubung).</li>
+                  <li>Google AI Studio akan otomatis membuat repositori baru di akun GitHub Anda lengkap dengan seluruh commit source code terbaru!</li>
+                </ol>
+              </div>
+
+              <div className="bg-slate-800/60 rounded-2xl p-5 border border-slate-700/80 space-y-4">
+                <h3 className="font-bold text-base text-white font-poppins flex items-center gap-2">
+                  <span className="w-6 h-6 bg-emerald-500 text-white text-xs rounded-full flex items-center justify-center font-bold">2</span>
+                  Metode Manual: Push via Terminal / Git CLI
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Jika Anda telah mengunduh / meng-clone kode di perangkat lokal, jalankan perintah berikut di Terminal:
+                </p>
+
+                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 font-mono text-xs text-emerald-400 overflow-x-auto">
+                  <div className="flex justify-between items-center text-slate-500 text-[11px]">
+                    <span>Perintah Terminal Git:</span>
+                    <button
+                      onClick={() => copyToClipboard('git init\ngit add .\ngit commit -m "Initial Karental release"\ngit branch -M main\ngit remote add origin https://github.com/USERNAME/karental-app.git\ngit push -u origin main', 'cmd-git')}
+                      className="p-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[10px] font-sans flex items-center gap-1 cursor-pointer"
+                    >
+                      {copiedId === 'cmd-git' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                      {copiedId === 'cmd-git' ? 'Tersalin' : 'Salin Perintah'}
+                    </button>
+                  </div>
+                  <p>git init</p>
+                  <p>git add .</p>
+                  <p>git commit -m "Initial Karental release"</p>
+                  <p>git branch -M main</p>
+                  <p>git remote add origin https://github.com/USERNAME/karental-app.git</p>
+                  <p>git push -u origin main</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-800/60 rounded-2xl p-5 border border-slate-700/80 space-y-3">
+                <h3 className="font-bold text-base text-white font-poppins flex items-center gap-2">
+                  <span className="w-6 h-6 bg-emerald-500 text-white text-xs rounded-full flex items-center justify-center font-bold">3</span>
+                  Otomatisasi CI/CD dengan GitHub Actions (.github/workflows/deploy.yml)
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Repositori ini sudah dilengkapi file <code className="text-emerald-400 font-mono">.github/workflows/deploy.yml</code> yang siap menguji &amp; membangun file produksi secara otomatis setiap kali Anda melakukan <code className="text-emerald-400 font-mono">git push</code>.
+                </p>
+              </div>
+
+            </div>
+          )}
 
           {/* METHOD 1: HOSTINGER SHARED / CLOUD HOSTING */}
           {activeDeployMethod === 'shared' && (
