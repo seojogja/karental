@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import { ImageUpload } from './ImageUpload';
-import { Save, Settings } from 'lucide-react';
+import { Save, Settings, Edit3, Code, Eye } from 'lucide-react';
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 
 export const SettingsTab = () => {
   const { settings, updateSettings } = useApp() as any;
+  const [editorMode, setEditorMode] = useState<'visual' | 'code' | 'preview'>('visual');
   const [form, setForm] = useState({
     faviconUrl: '',
     logoUrl: '',
@@ -26,6 +29,12 @@ export const SettingsTab = () => {
     footerEmail: '',
     footerPhone: '',
     whatsappNumber: '',
+    companyLegalTitle: '',
+    companySupportText: '',
+    seoSasV5Title: '',
+    seoSasV5Summary: '',
+    seoSasV5Content: '',
+    seoSasV5Enabled: true,
     footerSocialLinks: { fb: '', ig: '', twitter: '', youtube: '', tiktok: '' }
   });
 
@@ -52,6 +61,12 @@ export const SettingsTab = () => {
         footerEmail: settings.footerEmail || '',
         footerPhone: settings.footerPhone || '',
         whatsappNumber: settings.whatsappNumber || settings.footerPhone || '6287829609156',
+        companyLegalTitle: settings.companyLegalTitle || 'PT Karental Indonesia - Legal & Resmi',
+        companySupportText: settings.companySupportText || 'Layanan Customer Service & Support Bandara 24/7',
+        seoSasV5Title: settings.seoSasV5Title || 'Sewa Mobil Terpercaya Indonesia',
+        seoSasV5Summary: settings.seoSasV5Summary || '',
+        seoSasV5Content: settings.seoSasV5Content || '',
+        seoSasV5Enabled: settings.seoSasV5Enabled !== undefined ? settings.seoSasV5Enabled : true,
         footerSocialLinks: {
           fb: settings.footerSocialLinks?.fb || '',
           ig: settings.footerSocialLinks?.ig || '',
@@ -160,7 +175,7 @@ export const SettingsTab = () => {
             </div>
             <div>
               <label className="block mb-1 font-bold">Teks Tombol WhatsApp Hero (Hero CTA Button)</label>
-              <input placeholder="Default: Chat WhatsApp Direct" className="w-full border p-2 rounded-lg dark:bg-slate-800 focus:ring-2 focus:ring-[var(--theme-color)] outline-none" value={form.heroCtaText} onChange={e => setForm({...form, heroCtaText: e.target.value})} />
+              <input placeholder="Default: Chat WhatsApp" className="w-full border p-2 rounded-lg dark:bg-slate-800 focus:ring-2 focus:ring-[var(--theme-color)] outline-none" value={form.heroCtaText} onChange={e => setForm({...form, heroCtaText: e.target.value})} />
             </div>
             <ImageUpload label="Background Hero Image" value={form.heroBackgroundImage} onChange={val => setForm({...form, heroBackgroundImage: val})} />
           </div>
@@ -211,6 +226,14 @@ export const SettingsTab = () => {
               <label className="block mb-1 font-bold">No. Telepon Kontak Footer</label>
               <input className="w-full border p-2 rounded-lg dark:bg-slate-800 focus:ring-2 focus:ring-[var(--theme-color)] outline-none" value={form.footerPhone} onChange={e => setForm({...form, footerPhone: e.target.value})} />
             </div>
+            <div>
+              <label className="block mb-1 font-bold">Nama PT / Banner Legalitas Header & Footer</label>
+              <input placeholder="Default: PT Karental Indonesia - Legal & Resmi" className="w-full border p-2 rounded-lg dark:bg-slate-800 focus:ring-2 focus:ring-[var(--theme-color)] outline-none font-semibold text-slate-800 dark:text-white" value={form.companyLegalTitle} onChange={e => setForm({...form, companyLegalTitle: e.target.value})} />
+            </div>
+            <div>
+              <label className="block mb-1 font-bold">Teks Service Support / CS Header & Footer</label>
+              <input placeholder="Default: Layanan Customer Service & Support Bandara 24/7" className="w-full border p-2 rounded-lg dark:bg-slate-800 focus:ring-2 focus:ring-[var(--theme-color)] outline-none font-semibold text-slate-800 dark:text-white" value={form.companySupportText} onChange={e => setForm({...form, companySupportText: e.target.value})} />
+            </div>
             
             <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
               <label className="block mb-2 font-bold">Link Sosial Media</label>
@@ -222,6 +245,140 @@ export const SettingsTab = () => {
                 <input placeholder="TikTok URL" className="w-full border p-2 rounded-lg dark:bg-slate-800 focus:ring-2 focus:ring-[var(--theme-color)] outline-none" value={form.footerSocialLinks?.tiktok || ''} onChange={e => setForm({...form, footerSocialLinks: {...form.footerSocialLinks, tiktok: e.target.value}})} />
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Artikel SEO SAS v5 Editor Card */}
+      <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+          <div>
+            <h4 className="font-bold text-slate-900 dark:text-white font-poppins flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+              Artikel SEO SAS v5 Homepage (Standard Verified)
+            </h4>
+            <p className="text-xs text-slate-500">Kelola judul, ringkasan, dan isi artikel SEO pendukung yang ditampilkan di bawah section Armada Homepage.</p>
+          </div>
+          <label className="inline-flex items-center gap-2 cursor-pointer text-xs font-bold shrink-0 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
+            <input
+              type="checkbox"
+              checked={form.seoSasV5Enabled}
+              onChange={e => setForm({...form, seoSasV5Enabled: e.target.checked})}
+              className="rounded text-[var(--theme-color)] focus:ring-0 cursor-pointer"
+            />
+            <span>{form.seoSasV5Enabled ? 'Aktif di Homepage' : 'Nonaktifkan Section'}</span>
+          </label>
+        </div>
+
+        <div className="space-y-4 text-xs">
+          <div>
+            <label className="block mb-1 font-bold">Judul Artikel SEO SAS v5</label>
+            <input
+              placeholder="Contoh: Sewa Mobil Terpercaya Indonesia"
+              className="w-full border p-2.5 rounded-xl dark:bg-slate-800 focus:ring-2 focus:ring-[var(--theme-color)] outline-none font-semibold"
+              value={form.seoSasV5Title}
+              onChange={e => setForm({...form, seoSasV5Title: e.target.value})}
+            />
+          </div>
+
+          <div>
+            <label className="block mb-1 font-bold">Ringkasan Singkat (Muncul Saat Artikel Ditutup)</label>
+            <textarea
+              placeholder="Masukkan ringkasan singkat profil Karental dan layanan utama..."
+              className="w-full border p-2.5 rounded-xl dark:bg-slate-800 h-20 focus:ring-2 focus:ring-[var(--theme-color)] outline-none"
+              value={form.seoSasV5Summary}
+              onChange={e => setForm({...form, seoSasV5Summary: e.target.value})}
+            />
+            <span className="text-[10px] text-slate-400">Kosongkan jika ingin menggunakan ringkasan standar otomatis.</span>
+          </div>
+
+          <div>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+              <label className="block font-bold text-[var(--theme-color)]">
+                Kustom Konten Lengkap Artikel SEO SAS v5 (Text Editor)
+              </label>
+              
+              <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
+                <button
+                  type="button"
+                  onClick={() => setEditorMode('visual')}
+                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                    editorMode === 'visual'
+                      ? 'bg-[var(--theme-color)] text-white shadow-md'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
+                  }`}
+                >
+                  <Edit3 className="w-3.5 h-3.5" />
+                  <span>Editor Visual</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setEditorMode('code')}
+                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                    editorMode === 'code'
+                      ? 'bg-[var(--theme-color)] text-white shadow-md'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
+                  }`}
+                >
+                  <Code className="w-3.5 h-3.5" />
+                  <span>HTML Code</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setEditorMode('preview')}
+                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                    editorMode === 'preview'
+                      ? 'bg-[var(--theme-color)] text-white shadow-md'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
+                  }`}
+                >
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>Pratinjau</span>
+                </button>
+              </div>
+            </div>
+
+            {editorMode === 'visual' && (
+              <div className="bg-white text-black rounded-2xl overflow-hidden border border-slate-200 shadow-inner">
+                <ReactQuill
+                  theme="snow"
+                  value={form.seoSasV5Content || ''}
+                  onChange={(val) => setForm({...form, seoSasV5Content: val})}
+                  placeholder="Ketik atau edit artikel lengkap di sini..."
+                  style={{ height: '240px', marginBottom: '50px' }}
+                />
+              </div>
+            )}
+
+            {editorMode === 'code' && (
+              <textarea
+                placeholder="Masukkan teks HTML artikel tambahan jika ingin menggantikan/menambah artikel standar v5..."
+                className="w-full border p-3 rounded-2xl dark:bg-slate-800 h-64 font-mono text-xs focus:ring-2 focus:ring-[var(--theme-color)] outline-none leading-relaxed"
+                value={form.seoSasV5Content || ''}
+                onChange={e => setForm({...form, seoSasV5Content: e.target.value})}
+              />
+            )}
+
+            {editorMode === 'preview' && (
+              <div className="p-4 bg-slate-50 dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700 min-h-[200px] max-h-[350px] overflow-y-auto">
+                {form.seoSasV5Content && form.seoSasV5Content.trim() !== '' ? (
+                  <div
+                    className="prose dark:prose-invert max-w-none text-xs leading-relaxed space-y-3"
+                    dangerouslySetInnerHTML={{ __html: form.seoSasV5Content }}
+                  />
+                ) : (
+                  <div className="text-center py-12 text-slate-400 italic">
+                    Belum ada kustom artikel. Sistem akan menampilkan struktur artikel SAS v5 standar otomatis di homepage.
+                  </div>
+                )}
+              </div>
+            )}
+
+            <span className="text-[10px] text-slate-400 mt-1 block">
+              Mendukung pemformatan teks tebal, miring, judul, daftar (bullet list), tabel, dan link. Jika dikosongkan, sistem akan menampilkan artikel SAS v5 bawaan secara otomatis.
+            </span>
           </div>
         </div>
       </div>

@@ -42,12 +42,12 @@ export const Footer: React.FC = () => {
 
             <div className="space-y-2 text-xs text-slate-400">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-orange-400" />
-                <span>NIB: 1289000342110 / NPWP: 98.231.445.1-012.000</span>
+                <ShieldCheck className="w-4 h-4 text-orange-400 shrink-0" />
+                <span>{settings?.companyLegalTitle || 'PT Karental Indonesia - Legal & Resmi'} (NIB: 1289000342110)</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-orange-400" />
-                <span>Layanan Customer Care & Dispatcher Bandara 24 Jam Nonstop</span>
+                <Clock className="w-4 h-4 text-orange-400 shrink-0" />
+                <span>{settings?.companySupportText || 'Layanan Customer Service & Support Bandara 24/7'}</span>
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@ export const Footer: React.FC = () => {
         {/* Payment badging & Copyright */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            © {new Date().getFullYear()} PT Karental Indonesia. All rights reserved.
+            © {new Date().getFullYear()} {settings?.companyLegalTitle || 'PT Karental Indonesia'}. All rights reserved.
           </div>
 
           <div className="flex items-center gap-3">

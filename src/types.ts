@@ -167,5 +167,11 @@ export interface SiteSettings {
   footerEmail?: string;
   footerPhone?: string;
   whatsappNumber?: string;
+  companyLegalTitle?: string;
+  companySupportText?: string;
+  seoSasV5Title?: string;
+  seoSasV5Summary?: string;
+  seoSasV5Content?: string;
+  seoSasV5Enabled?: boolean;
   footerSocialLinks?: { fb?: string; ig?: string; twitter?: string; youtube?: string; tiktok?: string; };
 }

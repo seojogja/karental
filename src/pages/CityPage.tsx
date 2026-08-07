@@ -61,7 +61,7 @@ export const CityPage: React.FC<CityPageProps> = ({ slug }) => {
     },
     {
       question: `Bagaimana cara booking instan rental mobil di ${cityData.cityName}?`,
-      answer: `Anda dapat melakukan pemesanan via tombol 'Booking Online' di website ini atau langsung menghubungi Tim Dispatcher WhatsApp CS ${cityData.cityName} yang siaga 24 jam.`
+      answer: `Anda dapat melakukan pemesanan via tombol 'Booking Online' di website ini atau langsung menghubungi Tim WhatsApp CS ${cityData.cityName} yang siaga 24 jam.`
     }
   ];
 
@@ -117,6 +117,71 @@ export const CityPage: React.FC<CityPageProps> = ({ slug }) => {
         </div>
       </section>
 
+      {/* Daftar Harga / Price List Section (Langsung Di Bawah Hero Page Per Kota) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-[var(--theme-color)] text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" /> Pricelist Resmi Cabang {cityData.cityName}
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-poppins pt-1">
+                Daftar Tarif Rental Mobil {cityData.cityName} Terbaru 2026
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500">
+                *Harga transparan sudah termasuk asuransi all-risk komersial & garansi unit bersih siap jalan.
+              </p>
+            </div>
+            
+            <div className="shrink-0 flex items-center gap-2">
+              <button
+                onClick={() => openBookingModal(cityCars[0] || cars[0])}
+                className="bg-[var(--theme-color)] hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-orange-500/20 transition-all cursor-pointer text-xs sm:text-sm flex items-center gap-2"
+              >
+                <span>Pesan Sekarang</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-slate-100 dark:border-slate-800">
+            <table className="w-full text-left text-xs sm:text-sm">
+              <thead className="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold uppercase">
+                <tr>
+                  <th className="p-3.5 sm:p-4">Kategori Mobil</th>
+                  <th className="p-3.5 sm:p-4">Tarif Lepas Kunci (24j)</th>
+                  <th className="p-3.5 sm:p-4">Tarif Dengan Sopir (12j)</th>
+                  <th className="p-3.5 sm:p-4 text-center">Status / Aksi</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                {(cityData.priceList || []).map((row, idx) => (
+                  <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                    <td className="p-3.5 sm:p-4 font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                      <CarIcon className="w-4 h-4 text-orange-500 shrink-0" />
+                      <span>{row.carCategory}</span>
+                    </td>
+                    <td className="p-3.5 sm:p-4 font-bold text-[var(--theme-color)]">
+                      Rp {row.lepasKunciRate.toLocaleString('id-ID')} <span className="text-[10px] text-slate-400 font-normal">/ hari</span>
+                    </td>
+                    <td className="p-3.5 sm:p-4 font-bold text-emerald-600 dark:text-emerald-400">
+                      Rp {row.withDriverRate.toLocaleString('id-ID')} <span className="text-[10px] text-slate-400 font-normal">/ hari</span>
+                    </td>
+                    <td className="p-3.5 sm:p-4 text-center">
+                      <button
+                        onClick={() => openBookingModal(cityCars[0] || cars[0])}
+                        className="px-3.5 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-[var(--theme-color)] hover:text-white text-slate-700 dark:text-slate-200 text-xs font-bold rounded-lg transition-all cursor-pointer inline-flex items-center gap-1"
+                      >
+                        <span>Sewa</span>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
       {/* Popular Pickup Locations */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -137,8 +202,7 @@ export const CityPage: React.FC<CityPageProps> = ({ slug }) => {
         </div>
       </section>
 
-
-      {/* SEO Article & Price Comparison Table */}
+      {/* SEO Article & CS Sidebar */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-10">
         
         {/* Article Content */}
@@ -149,46 +213,15 @@ export const CityPage: React.FC<CityPageProps> = ({ slug }) => {
               dangerouslySetInnerHTML={{ __html: cityData.articleContent }}
             />
           </div>
-
-          {/* Price List Table */}
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xl space-y-4">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white font-poppins">
-              Daftar Tarif Rental Mobil {cityData.cityName} Terbaru 2026
-            </h3>
-            <p className="text-xs text-slate-500">
-              *Harga transparan termasuk asuransi all-risk komersial dan garansi unit bersih harum.
-            </p>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold uppercase">
-                  <tr>
-                    <th className="p-3 rounded-l-xl">Kategori Mobil</th>
-                    <th className="p-3">Tarif Lepas Kunci</th>
-                    <th className="p-3 rounded-r-xl">Tarif Dengan Sopir</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                  {(cityData.priceList || []).map((row, idx) => (
-                    <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                      <td className="p-3 font-semibold text-slate-900 dark:text-white">{row.carCategory}</td>
-                      <td className="p-3 font-bold text-[var(--theme-color)]">Rp {row.lepasKunciRate.toLocaleString('id-ID')} / hari</td>
-                      <td className="p-3 font-bold text-emerald-600 dark:text-emerald-400">Rp {row.withDriverRate.toLocaleString('id-ID')} / hari</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
         </div>
 
-        {/* Sidebar Dispatcher Contact */}
+        {/* Sidebar CS Contact */}
         <div className="space-y-6">
           <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-6 shadow-2xl border border-slate-800 space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-[var(--theme-color)] flex items-center justify-center font-bold">
               <PhoneCall className="w-6 h-6" />
             </div>
-            <h3 className="font-bold text-xl font-poppins">Dispatcher CS {cityData.cityName}</h3>
+            <h3 className="font-bold text-xl font-poppins">Customer Service {cityData.cityName}</h3>
             <p className="text-xs text-slate-300 leading-relaxed">
               Hubungi tim penanggung jawab cabang {cityData.cityName} untuk pemesanan darurat jam berapa saja.
             </p>
@@ -204,7 +237,7 @@ export const CityPage: React.FC<CityPageProps> = ({ slug }) => {
               onClick={() => trackWhatsAppClick(`Sidebar City ${cityData.cityName}`)}
               className="w-full bg-[var(--theme-color)] hover:bg-orange-600 text-white font-bold py-3.5 rounded-2xl text-xs transition-colors cursor-pointer shadow-lg shadow-orange-500/20"
             >
-              Hubungi Dispatcher {cityData.cityName}
+              Hubungi CS {cityData.cityName}
             </button>
           </div>
         </div>

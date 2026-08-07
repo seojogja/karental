@@ -24,7 +24,8 @@ export const Navbar: React.FC = () => {
     toggleDarkMode,
     trackWhatsAppClick,
     setIsAiModalOpen,
-    cities
+    cities,
+    settings
   } = useApp();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,10 +50,10 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-orange-400 font-medium">
               <ShieldCheck className="w-3.5 h-3.5" />
-              PT Karental Indonesia - Legal & Resmi
+              {settings?.companyLegalTitle || 'PT Karental Indonesia - Legal & Resmi'}
             </span>
             <span className="hidden md:inline text-slate-400">
-              Layanan Customer Service & Support Bandara 24/7
+              {settings?.companySupportText || 'Layanan Customer Service & Support Bandara 24/7'}
             </span>
           </div>
 

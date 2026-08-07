@@ -107,8 +107,12 @@ CREATE TABLE IF NOT EXISTS settings (
     whatsapp_number VARCHAR(50) DEFAULT '6281234567890',
     hero_title VARCHAR(255),
     hero_subtitle TEXT,
-    hero_cta_text VARCHAR(255) DEFAULT 'Chat WhatsApp Direct',
+    hero_cta_text VARCHAR(255) DEFAULT 'Chat WhatsApp',
     theme_color VARCHAR(50) DEFAULT '#f97316',
+    seo_sas_v5_title TEXT,
+    seo_sas_v5_summary TEXT,
+    seo_sas_v5_content TEXT,
+    seo_sas_v5_enabled BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 

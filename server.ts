@@ -29,6 +29,7 @@ let settingsStore: SiteSettings = {
   heroTitle: 'Sewa Mobil Premium & Eksklusif di Indonesia',
   heroSubtitle: 'Pusat sewa mobil mewah lepas kunci & dengan sopir VVIP untuk perjalanan bisnis, liburan, dan acara spesial Anda.',
   heroBackgroundImage: '/vastro_hero_car_1785990005190.jpg',
+  heroCtaText: 'Chat WhatsApp',
   ctaTitle: 'Siap Memulai Perjalanan Anda?',
   ctaSubtitle: 'Pesan mobil impian Anda sekarang dan nikmati pengalaman berkendara tak terlupakan bersama Karental.',
   ctaButtonText: 'Pesan Sekarang',
@@ -36,6 +37,12 @@ let settingsStore: SiteSettings = {
   footerAddress: 'Gedung Karental, Jl. Sudirman No. 123, Jakarta Selatan',
   footerEmail: 'cs@karental.com',
   footerPhone: '+62 878 2960 9156',
+  companyLegalTitle: 'PT Karental Indonesia - Legal & Resmi',
+  companySupportText: 'Layanan Customer Service & Support Bandara 24/7',
+  seoSasV5Title: 'Sewa Mobil Terpercaya Indonesia',
+  seoSasV5Summary: 'Karental (PT Karental Indonesia) merupakan penyedia armada rental mobil profesional dan terbesar di Indonesia. Kami melayani sewa mobil harian, mingguan, bulanan, layanan lepas kunci (self-drive) maupun sewa mobil dengan sopir (driver) profesional di berbagai kota besar seperti Jakarta, Surabaya, Bali, Bandung, Yogyakarta, Medan, Semarang, dan Makassar.',
+  seoSasV5Content: '',
+  seoSasV5Enabled: true,
   footerSocialLinks: { fb: '#', ig: '#', twitter: '#' }
 };
 

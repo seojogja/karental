@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { getCarSlug } from '../utils/slug';
+import { SeoSasV5Article } from '../components/home/SeoSasV5Article';
 import {
   Car as CarIcon,
   Search,
@@ -119,7 +120,7 @@ export const HomePage: React.FC = () => {
                 className="w-full sm:w-auto bg-[var(--theme-color)] hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-2xl shadow-2xl shadow-orange-500/40 hover:shadow-orange-500/60 transition-all cursor-pointer flex items-center justify-center gap-3 text-base transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <PhoneCall className="w-5 h-5" />
-                <span>{settings?.heroCtaText || 'Chat WhatsApp Direct'}</span>
+                <span>{settings?.heroCtaText || 'Chat WhatsApp'}</span>
               </button>
 
               <button
@@ -429,6 +430,8 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* 3.5. ARTIKEL SEO SAS v5 SECTION (Di bawah Armada) */}
+      <SeoSasV5Article />
 
       {/* 4. PROMO TERBARU WITH COUNTDOWN */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
