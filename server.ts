@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import { GoogleGenAI } from '@google/genai';
 import { INITIAL_CARS, CITY_PAGES, PROMOS, REVIEWS, FAQS, BLOGS, DRIVERS } from './src/data/mockData.js';
-import { Car, Booking, CityPageData, Promo, WhatsAppLog, Driver, ReviewItem, FAQItem, BlogArticle, SiteSettings } from './src/types.js';
+import { Car, Booking, CityPageData, Promo, WhatsAppLog, Driver, ReviewItem, FAQItem, BlogArticle, SiteSettings, MediaItem } from './src/types.js';
 
 const app = express();
 app.use(express.json({ limit: '10mb' }));
@@ -15,6 +15,41 @@ let reviewsStore: ReviewItem[] = [...REVIEWS];
 let faqsStore: FAQItem[] = [...FAQS];
 let blogsStore: BlogArticle[] = [...BLOGS];
 let driversStore: Driver[] = [...DRIVERS];
+
+let mediaStore: MediaItem[] = [
+  {
+    id: 'media-1',
+    title: 'Banner Hero Utama - Toyota Alphard',
+    url: '/vastro_hero_car_1785990005190.jpg',
+    category: 'Hero & Banner',
+    uploadedAt: new Date(Date.now() - 86400000 * 5).toISOString(),
+    size: '420 KB'
+  },
+  {
+    id: 'media-2',
+    title: 'Toyota Alphard Transformer VVIP',
+    url: INITIAL_CARS[0]?.image || 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=800',
+    category: 'Armada',
+    uploadedAt: new Date(Date.now() - 86400000 * 4).toISOString(),
+    size: '350 KB'
+  },
+  {
+    id: 'media-3',
+    title: 'Innova Zenix Hybrid White',
+    url: INITIAL_CARS[1]?.image || 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800',
+    category: 'Armada',
+    uploadedAt: new Date(Date.now() - 86400000 * 3).toISOString(),
+    size: '280 KB'
+  },
+  {
+    id: 'media-4',
+    title: 'Voucher Promo Karental Super',
+    url: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=800',
+    category: 'Promo',
+    uploadedAt: new Date(Date.now() - 86400000 * 2).toISOString(),
+    size: '310 KB'
+  }
+];
 
 let settingsStore: SiteSettings = {
   id: 'settings-1',
@@ -293,6 +328,29 @@ app.post('/api/promos', (req, res) => {
 
 app.delete('/api/promos/:id', (req, res) => {
   promosStore = promosStore.filter(p => p.id !== req.params.id);
+  res.json({ success: true, id: req.params.id });
+});
+
+// Media Gallery API
+app.get('/api/media', (req, res) => {
+  res.json(mediaStore);
+});
+
+app.post('/api/media', (req, res) => {
+  const newItem: MediaItem = {
+    id: 'media-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+    title: req.body.title || 'Media Upload ' + new Date().toLocaleDateString('id-ID'),
+    url: req.body.url,
+    category: req.body.category || 'Umum',
+    uploadedAt: new Date().toISOString(),
+    size: req.body.size || '150 KB'
+  };
+  mediaStore.unshift(newItem);
+  res.status(201).json(newItem);
+});
+
+app.delete('/api/media/:id', (req, res) => {
+  mediaStore = mediaStore.filter(m => m.id !== req.params.id);
   res.json({ success: true, id: req.params.id });
 });
 

@@ -12,6 +12,7 @@ import { DriversTab } from '../components/admin/DriversTab';
 import { WhatsappTab } from '../components/admin/WhatsappTab';
 import { CalendarTab } from '../components/admin/CalendarTab';
 import { ReportsTab } from '../components/admin/ReportsTab';
+import { GalleryTab } from '../components/admin/GalleryTab';
 import { HostingerDeployModal } from '../components/admin/HostingerDeployModal';
 import { Car, Booking, Promo, Driver, CityPageData } from '../types';
 import {
@@ -54,7 +55,8 @@ import {
   Globe,
   X,
   Sparkles,
-  ShieldCheck
+  ShieldCheck,
+  Image as ImageIcon
 } from 'lucide-react';
 
 export const AdminDashboardPage: React.FC = () => {
@@ -71,12 +73,13 @@ export const AdminDashboardPage: React.FC = () => {
     reviews,
     faqs,
     whatsappLogs,
+    mediaItems,
     addCar,
     updateCar,
     deleteCar,
     updateBookingStatus,
     showToast
-  } = useApp();
+  } = useApp() as any;
 
   // Login form state
   const [username, setUsername] = useState('');
@@ -84,7 +87,7 @@ export const AdminDashboardPage: React.FC = () => {
 
   // Active Admin Tab
   const [activeTab, setActiveTab] = useState<
-    'overview' | 'cars' | 'bookings' | 'calendar' | 'priceList' | 'settings' | 'cities' | 'promos' | 'blog' | 'testimoni' | 'faq' | 'drivers' | 'whatsapp' | 'reports'
+    'overview' | 'cars' | 'bookings' | 'calendar' | 'priceList' | 'settings' | 'cities' | 'promos' | 'blog' | 'testimoni' | 'faq' | 'drivers' | 'whatsapp' | 'reports' | 'gallery'
   >('overview');
 
   // Hostinger Guide Modal State
@@ -270,7 +273,8 @@ export const AdminDashboardPage: React.FC = () => {
         { id: 'cars', label: 'Kelola Mobil', count: cars.length, icon: CarIcon },
         { id: 'bookings', label: 'Daftar Booking', count: bookings.length, badge: pendingCount > 0 ? `${pendingCount} Pending` : undefined, icon: Calendar },
         { id: 'calendar', label: 'Kalender Sewa', icon: Clock },
-        { id: 'drivers', label: 'Driver & SDM', count: drivers?.length || 0, icon: Users }
+        { id: 'drivers', label: 'Driver & SDM', count: drivers?.length || 0, icon: Users },
+        { id: 'gallery', label: 'Galeri & Media', count: mediaItems?.length || 0, icon: ImageIcon }
       ]
     },
     {
@@ -732,6 +736,7 @@ export const AdminDashboardPage: React.FC = () => {
       {activeTab === 'drivers' && <DriversTab />}
       {activeTab === 'calendar' && <CalendarTab />}
       {activeTab === 'reports' && <ReportsTab />}
+      {activeTab === 'gallery' && <GalleryTab />}
 
       {activeTab === 'priceList' && <PriceListTab />}
       {activeTab === 'cities' && <CitiesTab />}

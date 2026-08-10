@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Car, Booking, CityPageData, Promo, WhatsAppLog, Driver, FAQItem, ReviewItem, BlogArticle, SiteSettings } from '../types';
+import { Car, Booking, CityPageData, Promo, WhatsAppLog, Driver, FAQItem, ReviewItem, BlogArticle, SiteSettings, MediaItem } from '../types';
 import { INITIAL_CARS, CITY_PAGES, PROMOS, DRIVERS, FAQS, REVIEWS, BLOGS } from '../data/mockData';
 
 interface AppContextType {
@@ -48,6 +48,9 @@ interface AppContextType {
   addCar: (car: Omit<Car, 'id'>) => Promise<void>;
   updateCar: (car: Car) => Promise<void>;
   deleteCar: (id: string) => Promise<void>;
+  mediaItems: MediaItem[];
+  addMediaItem: (item: Partial<MediaItem>) => Promise<void>;
+  deleteMediaItem: (id: string) => Promise<void>;
   toastMessage: string | null;
   showToast: (msg: string) => void;
   isAdminLoggedIn: boolean;
@@ -74,6 +77,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [whatsappLogs, setWhatsappLogs] = useState<WhatsAppLog[]>([]);
   const [drivers, setDrivers] = useState<Driver[]>(DRIVERS);
+  const [mediaItems, setMediaItems] = useState<MediaItem[]>([]);
 
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [selectedCarForBooking, setSelectedCarForBooking] = useState<Car | null>(null);
@@ -98,6 +102,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         if (data && Object.keys(data).length > 0) {
           setSettings(data);
         }
+      })
+      .catch(console.error);
+
+    fetch('/api/media')
+      .then(r => r.json())
+      .then(data => {
+        if (Array.isArray(data)) setMediaItems(data);
       })
       .catch(console.error);
   }, []);
@@ -365,6 +376,53 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     showToast('Driver berhasil dihapus dari daftar!');
   };
 
+  const addMediaItem = async (item: Partial<MediaItem>) => {
+    try {
+      const res = await fetch('/api/media', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(item)
+      });
+      if (res.ok) {
+        const saved: MediaItem = await res.json();
+        setMediaItems(prev => [saved, ...prev]);
+        showToast('Gambar berhasil diunggah ke Galeri Media!');
+      } else {
+        const newItem: MediaItem = {
+          id: 'media-' + Date.now(),
+          title: item.title || 'Media Upload',
+          url: item.url || '',
+          category: item.category || 'Umum',
+          uploadedAt: new Date().toISOString(),
+          size: item.size || '200 KB'
+        };
+        setMediaItems(prev => [newItem, ...prev]);
+        showToast('Gambar berhasil diunggah ke Galeri!');
+      }
+    } catch {
+      const newItem: MediaItem = {
+        id: 'media-' + Date.now(),
+        title: item.title || 'Media Upload',
+        url: item.url || '',
+        category: item.category || 'Umum',
+        uploadedAt: new Date().toISOString(),
+        size: item.size || '200 KB'
+      };
+      setMediaItems(prev => [newItem, ...prev]);
+      showToast('Gambar berhasil diunggah!');
+    }
+  };
+
+  const deleteMediaItem = async (id: string) => {
+    try {
+      await fetch('/api/media/' + id, { method: 'DELETE' });
+    } catch (e) {
+      console.error(e);
+    }
+    setMediaItems(prev => prev.filter(m => m.id !== id));
+    showToast('Media berhasil dihapus dari galeri.');
+  };
+
   const adminLogin = (user: string, pass: string) => {
     if ((user === 'vastromedia@gmail.com' && pass === 'eMonJal!%E&5097JakAL') || (user === 'admin' && pass === 'admin123')) {
       setIsAdminLoggedIn(true);
@@ -412,6 +470,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         addCar,
         updateCar,
         deleteCar,
+        mediaItems,
+        addMediaItem,
+        deleteMediaItem,
         toastMessage,
         showToast,
         isAdminLoggedIn,

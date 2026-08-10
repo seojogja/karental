@@ -175,3 +175,12 @@ export interface SiteSettings {
   seoSasV5Enabled?: boolean;
   footerSocialLinks?: { fb?: string; ig?: string; twitter?: string; youtube?: string; tiktok?: string; };
 }
+
+export interface MediaItem {
+  id: string;
+  title: string;
+  url: string;
+  category: 'Armada' | 'Hero & Banner' | 'Promo' | 'Blog' | 'Dokumen' | 'Umum';
+  uploadedAt: string;
+  size?: string;
+}
