@@ -242,16 +242,28 @@ export const CITY_PAGES: CityPageData[] = [
     metaTitle: 'Rental Mobil Jakarta Murah & Premium - Karental',
     metaDescription: 'Sewa mobil Alphard, Innova Zenix, Fortuner, & Sedan Mewah di Jakarta Jabodetabek. Layanan 24 Jam, Antar Jemput Bandara Soekarno Hatta.',
     articleContent: `
-      <h2>Layanan Rental Mobil Terbaik di Jakarta & Jabodetabek</h2>
-      <p>Pusat bisnis dan pemerintahan Indonesia menuntut mobilitas yang tinggi dan berkelas. Karental menghadirkan solusi penyewaan mobil premium di Jakarta untuk kebutuhan dinas kantor, operasional VIP, kunjungan tamu mancanegara, hingga liburan keluarga.</p>
-      
-      <h3>Mengapa Memilih Karental Jakarta?</h3>
+      <h2>Rental Mobil Jakarta Terlengkap: Lepas Kunci & Driver VVIP 24 Jam</h2>
+      <p>Sebagai pusat ekonomi, bisnis, dan pemerintahan Indonesia, Jakarta memiliki tingkat dinamika mobilitas yang sangat tinggi. Karental Jakarta hadir memberikan solusi penyewaan mobil profesional, mulai dari armada harian bisnis, operasional ekspatriat, hingga perjalanan VIP protokoler dengan sopir berpengalaman.</p>
+
+      <h3>Keunggulan Layanan Rental Mobil Karental Jakarta</h3>
       <ul>
-        <li><strong>Armada Terbaru & Terawat:</strong> Semua mobil selalu melewati inspeksi berkala dan higienitas kabin yang terjamin.</li>
-        <li><strong>Sopir Berpengalaman:</strong> Memahami rute ganjil genap, tol Jabodetabek, serta etika pelayanan ramah.</li>
-        <li><strong>Antar Jemput Bandara Soekarno-Hatta (CGK) & Halim (HLP):</strong> Pengantaran tepat waktu dengan signage nama penumpangnya.</li>
-        <li><strong>Proses Booking Instan via WhatsApp:</strong> Tidak repot, konfirmasi cepat dalam hitungan menit.</li>
+        <li><strong>Pilihan Armada Terlengkap & Terbaru:</strong> Tersedia Innova Zenix Hybrid, Toyota Fortuner GR, Mitsubishi Pajero Sport, hingga Toyota Alphard Transformer & HEV. Semua kendaraan dalam kondisi prima dan kebersihan terjamin.</li>
+        <li><strong>Sopir Profesional & Beretika:</strong> Pengemudi Karental memahami medan lalu lintas Jabodetabek, bebas dari aturan ganjil-genap dengan penyesuaian plat kendaraan, dan terlatih dalam etika pelayanan tamu VVIP.</li>
+        <li><strong>Layanan Antar-Jemput Gratis Bandara:</strong> Bebas biaya pengantaran dan penjemputan di Bandara Internasional Soekarno-Hatta (CGK) & Bandara Halim Perdanakusuma (HLP) serta stasiun Kereta Cepat Whoosh Halim.</li>
+        <li><strong>Rental Mobil Lepas Kunci Syarat Mudah:</strong> Proses verifikasi dokumen cepat melalui WhatsApp tanpa survey rumit untuk profesional dan korporasi.</li>
       </ul>
+
+      <h3>Pilihan Paket Sewa Mobil di Jakarta</h3>
+      <p>Karental Jakarta menyediakan fleksibilitas skema penyewaan yang dapat disesuaikan dengan kebutuhan Anda:</p>
+      <ul>
+        <li><strong>Sewa Harian Lepas Kunci (24 Jam):</strong> Bebas berkendara ke mana saja di area Jabodetabek dan Jawa Barat dengan unit kendaraan tahun muda.</li>
+        <li><strong>Sewa Mobil + Driver (12 Jam / Full Day):</strong> Solusi bebas lelah menghadapi kemacetan Jakarta. Sopir kami siap mengantar Anda ke seluruh pertemuan bisnis.</li>
+        <li><strong>Paket All-In (Mobil + Driver + BBM + Tol & Parkir):</strong> Solusi praktis tanpa khawatir biaya tambahan selama perjalanan di Jakarta.</li>
+        <li><strong>Sewa Bulanan & Kontrak Korporasi:</strong> Layanan operasional perusahaan dengan fasilitas perawatan berkala dan mobil pengganti (replacement car).</li>
+      </ul>
+
+      <h3>Area Jangkauan Antar Jemput di Jakarta & Jabodetabek</h3>
+      <p>Kami melayani pengantaran unit langsung ke rumah, kantor, hotel, maupun fasilitas umum di area Jakarta Selatan (SCBD, Kuningan, Pondok Indah), Jakarta Pusat (Thamrin, Sudirman, Menteng), Jakarta Barat (Puri Indah, Central Park), Jakarta Utara (PIK, Kelapa Gading), Jakarta Timur, Tangerang, Depok, dan Bekasi.</p>
     `,
     popularLocations: ['Bandara Soekarno-Hatta', 'Sudirman Central Business District (SCBD)', 'Kuningan & Thamrin', 'Bandara Halim Perdanakusuma', 'PIK & BSD City'],
     priceList: [
@@ -270,8 +282,25 @@ export const CITY_PAGES: CityPageData[] = [
     metaTitle: 'Sewa Mobil Bali Murah & Luxury - Alphard, Zenix, Convertible - Karental',
     metaDescription: 'Rental mobil Bali dengan sopir / lepas kunci. Antar jemput Bandara Ngurah Rai I Gusti Ngurah Rai, Seminyak, Canggu, Ubud, Uluwatu.',
     articleContent: `
-      <h2>Solusi Transportasi Liburan & VIP Event di Pulau Dewata Bali</h2>
-      <p>Jelajahi keindahan pantai Canggu, tebing Uluwatu, ketersediaan kuliner Seminyak, hingga kedamaian Ubud dengan kenyamanan kendaraan premium. Karental Bali menyediakan layanan sewa mobil lepas kunci dan dengan driver profesional berpengalaman membawa wisatawan domestik dan internasional.</p>
+      <h2>Sewa Mobil Bali Murah & Luxury: Nikmati Liburan Impian di Pulau Dewata</h2>
+      <p>Pulau Bali adalah destinasi wisata internasional yang menawarkan pesona pantai, budaya, dan keindahan alam luar biasa. Karental Bali menyediakan armada lengkap untuk mendukung perjalanan wisata, honeymoon, pernikahan, hingga konferensi tingkat tinggi (G20/KTT) di Bali.</p>
+
+      <h3>Mengapa Pilih Rental Mobil Karental di Bali?</h3>
+      <ul>
+        <li><strong>Antar Jemput Gratis di Bandara Ngurah Rai (DPS):</strong> Tim kami siap menantikan kedatangan Anda di arrival hall Bandara Bali dengan unit siap pakai.</li>
+        <li><strong>Armada Mobil Mewah & Convertible:</strong> Tersedia pilihan Innova Zenix, Alphard, Fortuner, hingga Mini Cooper & BMW Convertible untuk momen liburan berkesan.</li>
+        <li><strong>Driver Lokal Berpengalaman sebagai Tour Guide:</strong> Sopir kami siap memberikan rekomendasi spot kuliner tersembunyi, sunset terbaik, dan rute bebas macet.</li>
+        <li><strong>Opsi Lepas Kunci Praktis:</strong> Syarat mudah khusus wisatawan domestik dan mancanegara yang ingin menjelajah Bali sendiri.</li>
+      </ul>
+
+      <h3>Rute Wisata Populer di Bali Bersama Karental</h3>
+      <p>Jelajahi seluruh kawasan eksotis Bali dengan kendaraan yang nyaman:</p>
+      <ul>
+        <li><strong>Bali Selatan:</strong> Pantai Pandawa, Melasti, Uluwatu, Nusa Dua, dan GWK Cultural Park.</li>
+        <li><strong>Kawasan Hipster & Sunset:</strong> Seminyak, Canggu, Pererenan, dan Echo Beach.</li>
+        <li><strong>Bali Tengah & Budaya:</strong> Ubud Monkey Forest, Tegallalang Rice Terrace, Kintamani, dan Danau Batur.</li>
+        <li><strong>Bali Utara & Timur:</strong> Handara Gate Bedugul, Pura Lempuyang, Tirta Gangga, dan Lovina Beach.</li>
+      </ul>
     `,
     popularLocations: ['Bandara I Gusti Ngurah Rai (DPS)', 'Seminyak & Legian', 'Canggu & Pererenan', 'Ubud Centre', 'Nusa Dua VIP Resort'],
     priceList: [
@@ -289,8 +318,23 @@ export const CITY_PAGES: CityPageData[] = [
     metaTitle: 'Rental Mobil Surabaya - Zenix, Alphard, Fortuner - Karental',
     metaDescription: 'Sewa mobil Surabaya lepas kunci & driver. Layanan gratis antar ke Bandara Juanda, Stasiun Gubeng & Pasar Turi. Siap kirim luar kota Bromo & Malang.',
     articleContent: `
-      <h2>Rental Mobil Profesional di Kota Pahlawan Surabaya</h2>
-      <p>Kebutuhan bisnis di kawasan Rungkut, Gresik, Sidoarjo hingga perjalanan wisata ke Bromo dan Malang kini semakin mudah dengan armada Karental Surabaya.</p>
+      <h2>Rental Mobil Surabaya Terpercaya: Antar Jemput Bandara Juanda & Stasiun Gubeng</h2>
+      <p>Surabaya sebagai Kota Pahlawan sekaligus pusat perekonomian dan industri Jawa Timur membutuhkan sarana transportasi yang andal. Karental Surabaya siap melayani kebutuhan mobil harian, mingguan, maupun bulanan untuk keperluan bisnis, industri Rungkut/Gresik, hingga perjalanan luar kota seperti Bromo dan Malang.</p>
+
+      <h3>Fasilitas Unggulan Karental Surabaya</h3>
+      <ul>
+        <li><strong>Layanan Antar Jemput Bandara Juanda (SUB):</strong> Pengantaran unit cepat ke Terminal 1 & 2 Bandara Juanda serta Stasiun Surabaya Gubeng & Pasar Turi.</li>
+        <li><strong>Armada Luar Kota Siap Bromo & Malang:</strong> Kondisi mesin dan rem selalu dicek ketat sebelum digunakan melintasi rute pegunungan Bromo atau Batu Malang.</li>
+        <li><strong>Sopir Berpengalaman Rute Jawa Timur:</strong> Sopir handal yang menguasai jalan tol Trans-Jawa dan rute wisata favorit.</li>
+        <li><strong>Pricelist Transparan Tanpa Biaya Tersembunyi:</strong> Harga bersaing sudah termasuk garansi kebersihan dan keharuman kabin.</li>
+      </ul>
+
+      <h3>Paket Wisata & Dinas dari Surabaya</h3>
+      <ul>
+        <li><strong>City Tour Surabaya:</strong> Kunjungan ke Tunjungan Plaza, Sampoerna Strategic, Monumen Kapal Selam, dan Jembatan Suramadu.</li>
+        <li><strong>Paket Wisata Bromo Sunrise:</strong> Perjalanan malam hari dari Surabaya ke Penanjakan Bromo dengan kenyamanan MPV/SUV Karental.</li>
+        <li><strong>Perjalanan Bisnis Perkantoran & Industri:</strong> Pengantaran ke kawasan industri SIER Rungkut, JIIPE Gresik, dan Krian Sidoarjo.</li>
+      </ul>
     `,
     popularLocations: ['Bandara Internasional Juanda (SUB)', 'Stasiun Surabaya Gubeng', 'Kawasan Industri Rungkut', 'Tunjungan Plaza & CBD Surabaya'],
     priceList: [
@@ -308,8 +352,23 @@ export const CITY_PAGES: CityPageData[] = [
     metaTitle: 'Rental Mobil Bandung - Lepas Kunci & Sopir - Karental',
     metaDescription: 'Rental mobil Bandung untuk wisata Lembang, Ciwidey, Dago. Siap antar jemput stasiun Kereta Cepat Whoosh Padalarang & Tegalluar.',
     articleContent: `
-      <h2>Sewa Mobil Bandung Wisata & Perjalanan Dinas</h2>
-      <p>Perjalanan wisata kuliner dan keindahan alam Lembang Ciwidey makin sempurna dengan kenyamanan armada SUV dan MPV Karental.</p>
+      <h2>Sewa Mobil Bandung Murah & Lengkap: Wisata Lembang, Ciwidey & Whoosh Station</h2>
+      <p>Kota Bandung dan sekitarnya menawarkan destinasi wisata alam sejuk, kuliner lezat, dan belanja fashion yang selalu memikat. Karental Bandung menyediakan sewa mobil lepas kunci dan dengan driver profesional untuk mengantar Anda menikmati suasana Kota Kembang tanpa lelah.</p>
+
+      <h3>Keuntungan Sewa Mobil di Bandung Bersama Karental</h3>
+      <ul>
+        <li><strong>Antar Jemput Stasiun Kereta Cepat Whoosh:</strong> Pengantaran unit langsung ke Stasiun Padalarang maupun Stasiun Tegalluar untuk kemudahan pengguna Whoosh dari Jakarta.</li>
+        <li><strong>Performa Mobil Tangguh di Rute Menanjak:</strong> Armada Innova Zenix, HR-V, dan Pajero dalam kondisi mesin optimal untuk tanjakan tajam Lembang, Tangkuban Perahu, dan Ciwidey.</li>
+        <li><strong>Driver Lokal Ramah & Paham Rute Alternatif:</strong> Menghindari kemacetan akhir pekan di jalur Dago, Lembang, dan Pasteur.</li>
+        <li><strong>Sewa Mobil Lepas Kunci Syarat Cepat:</strong> Cocok untuk liburan keluarga atau reuni sahabat secara privat.</li>
+      </ul>
+
+      <h3>Rute Favorit Rental Mobil Bandung</h3>
+      <ul>
+        <li><strong>Bandung Utara:</strong> Farmhouse Lembang, Floating Market, Orchid Forest Cikole, D'Diepland.</li>
+        <li><strong>Bandung Selatan:</strong> Kawah Putih Ciwidey, Ranca Upas, Glamping Lakeside Rancabali, Tea Bridge.</li>
+        <li><strong>City Tour & Shopping:</strong> Jalan Riau, Braga, Dago, Pasar Baru, dan Museum Asia Afrika.</li>
+      </ul>
     `,
     popularLocations: ['Stasiun Whoosh Padalarang', 'Stasiun Bandung Kebon Kawung', 'Lembang & Maribaya', 'Dago & Riau Shoppiing District'],
     priceList: [
@@ -326,8 +385,23 @@ export const CITY_PAGES: CityPageData[] = [
     metaTitle: 'Rental Mobil Jogja Murah - Lepas Kunci & Driver - Karental',
     metaDescription: 'Sewa mobil Jogja terpercaya. Antar jemput Bandara YIA Kulon Progo, Stasiun Tugu Jogja, Malioboro, Borobudur, & Gunungkidul.',
     articleContent: `
-      <h2>Sewa Mobil Istimewa di Yogyakarta</h2>
-      <p>Nikmati suasana budaya Jogja tanpa ribet dengan layanan mobil terawat dan ramah sopir berpengalaman.</p>
+      <h2>Rental Mobil Jogja Istimewa: Lepas Kunci & Driver Antar Jemput YIA & Tugu</h2>
+      <p>Yogyakarta merupakan kota budaya, pelajar, dan pariwisata yang kaya akan kenangan. Karental Jogja menawarkan penyewaan kendaraan dengan pelayanan istimewa ramah khas Jogja untuk menyempurnakan kunjungan Anda di Candi Borobudur, Malioboro, hingga pantai-pantai eksotis Gunungkidul.</p>
+
+      <h3>Mengapa Memilih Karental Yogyakarta?</h3>
+      <ul>
+        <li><strong>Antar Jemput Bandara YIA Kulon Progo & Stasiun Tugu:</strong> Pengantaran langsung ke pintu kedatangan Bandara Internasional Yogyakarta (YIA) dan Stasiun Tugu Jogja.</li>
+        <li><strong>Driver Berkelakuan Santun Khas Jogja:</strong> Paham seluk-beluk rute sejarah, wisata pantai selat Gunungkidul, serta tempat kuliner Gudeg & Wedang Ronde legendaris.</li>
+        <li><strong>Armada Bersih & Perawatan Rutin:</strong> Jaminan kenyamanan maksimal dari kelas MPV Zenix hingga Luxury Alphard.</li>
+        <li><strong>Harga Sewa Sangat Terjangkau:</strong> Tarif ekonomis cocok untuk kantong mahasiswa, dinas kantor, maupun rombongan keluarga.</li>
+      </ul>
+
+      <h3>Destinasi Utama Wisata Jogja Bersama Karental</h3>
+      <ul>
+        <li><strong>Wisata Sejarah & Budaya:</strong> Keraton Yogyakarta, Taman Sari, Candi Prambanan, dan Candi Borobudur.</li>
+        <li><strong>Wisata Alam & Petualangan:</strong> Jeep Lava Tour Merapi, Cave Tubing Goa Pindul, Hutan Pinus Mangunan.</li>
+        <li><strong>Wisata Pantai Gunungkidul:</strong> Pantai Indrayanti, Pantai Pok Tunggal, HeHa Sky View, dan Obelix Hills.</li>
+      </ul>
     `,
     popularLocations: ['Bandara YIA Kulon Progo', 'Stasiun Tugu Jogja', 'Kawasan Malioboro', 'Candi Borobudur & Prambanan'],
     priceList: [
@@ -344,8 +418,23 @@ export const CITY_PAGES: CityPageData[] = [
     metaTitle: 'Rental Mobil Medan Murah - Lepas Kunci & Driver - Karental',
     metaDescription: 'Rental mobil Medan antar jemput Bandara Kualanamu (KNO), Istana Maimun, Danau Toba Parapat, Berastagi.',
     articleContent: `
-      <h2>Rental Mobil Profesional Medan & Sumatera Utara</h2>
-      <p>Jelajahi keindahan Istana Maimun, wisata alam Berastagi, hingga destinasi super prioritas Danau Toba dengan kenyamanan armada Karental Medan.</p>
+      <h2>Rental Mobil Medan Terpercaya: Antar Jemput Bandara Kualanamu & Danau Toba</h2>
+      <p>Medan sebagai metropolitan terbesar di Sumatera merupakan pintu utama menuju pesona keajaiban dunia Danau Toba Parapat dan keindahan alam Berastagi. Karental Medan hadir dengan armada handal siap melayani perjalanan dinas korporasi maupun perjalanan wisata Sumatera Utara.</p>
+
+      <h3>Keunggulan Karental Medan</h3>
+      <ul>
+        <li><strong>Antar-Jemput Bandara Internasional Kualanamu (KNO):</strong> Penjemputan tepat waktu 24 jam di Bandara Kualanamu langsung menuju kota Medan atau Danau Toba.</li>
+        <li><strong>Armada Tangguh Rute Lintas Sumatera:</strong> Mobil Innova Reborn/Zenix, Fortuner, dan Pajero dikondisikan prima untuk menempuh perjalanan jauh Berastagi & Samosir.</li>
+        <li><strong>Driver Paham Medan & Jalur Wisata Sumut:</strong> Pengemudi berpengalaman yang mengutamakan keselamatan dan kenyamanan penumpang.</li>
+        <li><strong>Pilihan Sewa Lepas Kunci & All-In:</strong> Fleksibel sesuai anggaran dan preferensi perjalanan Anda.</li>
+      </ul>
+
+      <h3>Rute Favorit di Medan & Sumatera Utara</h3>
+      <ul>
+        <li><strong>City Tour Medan:</strong> Istana Maimun, Masjid Raya Al-Mashun, Tjong A Fie Mansion, dan Pusat Kuliner Durian Ucok.</li>
+        <li><strong>Wisata Alam Berastagi:</strong> Bukit Kubu, Pasar Buah Berastagi, Gunung Sibayak, dan Air Terjun Sipiso-Piso.</li>
+        <li><strong>Destinasi Super Prioritas Danau Toba:</strong> Pelabuhan Ajibata Parapat, Pulau Samosir, Tuk-Tuk, dan Bukit Holbung.</li>
+      </ul>
     `,
     popularLocations: ['Bandara Internasional Kualanamu (KNO)', 'Istana Maimun & Masjid Raya', 'Berastagi & Danau Toba', 'CBD Kota Medan'],
     priceList: [
@@ -362,8 +451,23 @@ export const CITY_PAGES: CityPageData[] = [
     metaTitle: 'Rental Mobil Semarang - Lepas Kunci & Driver - Karental',
     metaDescription: 'Sewa mobil Semarang lepas kunci & driver. Layanan gratis antar jemput Lawang Sewu, Kota Lama, Bandara Ahmad Yani, Stasiun Tawang.',
     articleContent: `
-      <h2>Sewa Mobil Murah & Terpercaya di Semarang</h2>
-      <p>Kebutuhan perjalanan dinas perkantoran Jawa Tengah dan wisata sejarah Kota Lama Lawang Sewu semakin nyaman dengan armada terbaru Karental.</p>
+      <h2>Rental Mobil Semarang Murah & Terpercaya: Bandara Ahmad Yani & Stasiun Tawang</h2>
+      <p>Semarang merupakan pusat pemerintahan Jawa Tengah yang memadukan kawasan bisnis modern dengan cagar budaya bersejarah. Karental Semarang memberikan layanan penyewaan mobil premium lepas kunci maupun dengan sopir untuk memudahkan dinas perkantoran dan wisata kuliner khas Semarang.</p>
+
+      <h3>Mengapa Sewa Mobil di Karental Semarang?</h3>
+      <ul>
+        <li><strong>Layanan Antar Jemput Bandara Ahmad Yani (SRG):</strong> Pengantaran unit ke Bandara Ahmad Yani, Stasiun Semarang Tawang & Poncol, serta hotel se-kota Semarang.</li>
+        <li><strong>Sopir Berpengalaman Tol Trans Jawa:</strong> Siap mengantar perjalanan bisnis menuju kawasan industri Kendal, Ungaran, Kudus, hingga Solo dan Jogja.</li>
+        <li><strong>Verifikasi Cepat & Syarat Mudah:</strong> Proses pemesanan praktis via CS WhatsApp tanpa prosedur berbelit.</li>
+        <li><strong>Kondisi Mobil Selalu Bersih & Wangi:</strong> Jaminan kenyamanan kabin ber-AC dingin dan higienis.</li>
+      </ul>
+
+      <h3>Destinasi Populer di Semarang & Sekitarnya</h3>
+      <ul>
+        <li><strong>Wisata Sejarah Kota Semarang:</strong> Lawang Sewu, Kawasan Kota Lama Semarang, Kelenteng Sam Poo Kong, dan Candi Gedong Songo.</li>
+        <li><strong>Wisata Kuliner:</strong> Pandanaran Lumpia Semarang, Tahu Baxo Ungaran, Nasi Ayam Bu Wido, dan Bandeng Presto.</li>
+        <li><strong>Kawasan Industri & Perkantoran:</strong> Kawasan Industri Terboyo, BSB City, Kendal Industrial Park, dan Simpang Lima.</li>
+      </ul>
     `,
     popularLocations: ['Bandara Ahmad Yani (SRG)', 'Stasiun Semarang Tawang', 'Kawasan Kota Lama & Lawang Sewu', 'Simpang Lima Semarang'],
     priceList: [
@@ -380,8 +484,23 @@ export const CITY_PAGES: CityPageData[] = [
     metaTitle: 'Rental Mobil Makassar - Lepas Kunci & Driver - Karental',
     metaDescription: 'Sewa mobil Makassar terpercaya. Antar jemput Bandara Sultan Hasanuddin, Pantai Losari, Benteng Rotterdam, Tana Toraja.',
     articleContent: `
-      <h2>Layanan Rental Mobil Handal di Makassar</h2>
-      <p>Pusat gerbang ekonomi Indonesia Timur. Karental Makassar menyediakan armada MPV dan SUV terbaik untuk kunjungan bisnis dan wisata kuliner Pantai Losari.</p>
+      <h2>Sewa Mobil Makassar Handal: Antar Jemput Bandara Sultan Hasanuddin & Toraja</h2>
+      <p>Makassar sebagai gerbang ekonomi utama Indonesia Timur menyimpan pesona pantai eksotis, situs bersejarah, dan kuliner juara dunia. Karental Makassar menyediakan layanan rental mobil terpercaya untuk kebutuhan operasional bisnis, kunjungan instansi, hingga tur wisata ke Tana Toraja.</p>
+
+      <h3>Keunggulan Layanan Karental Makassar</h3>
+      <ul>
+        <li><strong>Antar Jemput Bandara Sultan Hasanuddin (UPG):</strong> Tim pengemudi kami siap menjemput Anda di arrival hall Bandara Makassar 24 jam nonstop.</li>
+        <li><strong>Armada Prima Siap Tempuh Jalur Trans-Sulawesi:</strong> Pilihan unit Fortuner, Pajero, dan Innova Zenix tangguh untuk perjalanan jarak jauh ke Tana Toraja, Bulukumba, & Bira.</li>
+        <li><strong>Sopir Lokal Profesional & Informatif:</strong> Mengenal akrab rute alternatif, tempat makan Coto Makassar terlezat, dan spot sunset Pantai Losari.</li>
+        <li><strong>Paket Sewa Lepas Kunci & Driver All-In:</strong> Pilihan fleksibel untuk kebutuhan perorangan maupun perusahaan.</li>
+      </ul>
+
+      <h3>Rute Impian Wisata di Sulawesi Selatan</h3>
+      <ul>
+        <li><strong>City Tour Makassar:</strong> Pantai Losari, Center Point of Indonesia (CPI), Masjid 99 Kubah, Benteng Rotterdam, dan Fort Rotterdam.</li>
+        <li><strong>Wisata Alam & Pantai:</strong> Karst Rammang-Rammang Maros, Tanjung Bira Bulukumba, dan Malino Highlands.</li>
+        <li><strong>Wisata Budaya Tana Toraja:</strong> Kete Kesu, Lemo, Rantepao, dan Buntu Burake Makale.</li>
+      </ul>
     `,
     popularLocations: ['Bandara Sultan Hasanuddin (UPG)', 'Pantai Losari & Center Point Indonesia', 'Benteng Rotterdam', 'Kawasan Industri Makassar (KIMA)'],
     priceList: [
