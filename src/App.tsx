@@ -18,6 +18,7 @@ import { TentangKamiPage } from './pages/TentangKamiPage';
 import { KontakPage } from './pages/KontakPage';
 import { AdminDashboardPage } from './pages/AdminDashboardPage';
 import { CarDetailPage } from './pages/CarDetailPage';
+import { BlogDetailPage } from './pages/BlogDetailPage';
 import { CheckCircle2 } from 'lucide-react';
 
 const MainRouter: React.FC = () => {
@@ -30,7 +31,11 @@ const MainRouter: React.FC = () => {
     if (currentRoute === '/promo') return <PromoPage />;
     if (currentRoute === '/testimoni') return <TestimoniPage />;
     if (currentRoute === '/faq') return <FAQPage />;
-    if (currentRoute === '/blog') return <BlogPage />;
+    if (currentRoute === '/blog' || currentRoute === '/blog/') return <BlogPage />;
+    if (currentRoute.startsWith('/blog/')) {
+      const slug = currentRoute.replace('/blog/', '');
+      return <BlogDetailPage blogSlug={slug} />;
+    }
     if (currentRoute === '/tentang-kami') return <TentangKamiPage />;
     if (currentRoute === '/kontak') return <KontakPage />;
     if (currentRoute === '/admin') return <AdminDashboardPage />;

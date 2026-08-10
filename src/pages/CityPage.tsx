@@ -78,10 +78,10 @@ export const CityPage: React.FC<CityPageProps> = ({ slug }) => {
           <img
             src={cityData.landmarkImage}
             alt={`Rental Mobil ${cityData.cityName}`}
-            className="w-full h-full object-cover opacity-35"
+            className="w-full h-full object-cover opacity-100"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/30" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto text-center space-y-4">

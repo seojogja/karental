@@ -334,6 +334,60 @@ export const CITY_PAGES: CityPageData[] = [
       { carCategory: 'MPV Family (Innova Zenix)', lepasKunciRate: 800000, withDriverRate: 1000000 },
       { carCategory: 'Executive Luxury (Alphard)', lepasKunciRate: 2200000, withDriverRate: 2500000 }
     ]
+  },
+  {
+    slug: 'rental-mobil-medan',
+    cityName: 'Medan',
+    province: 'Sumatera Utara',
+    heroTagline: 'Sewa Mobil Medan & Danau Toba Parapat - Armada Terawat & Driver Berpengalaman',
+    landmarkImage: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
+    metaTitle: 'Rental Mobil Medan Murah - Lepas Kunci & Driver - Karental',
+    metaDescription: 'Rental mobil Medan antar jemput Bandara Kualanamu (KNO), Istana Maimun, Danau Toba Parapat, Berastagi.',
+    articleContent: `
+      <h2>Rental Mobil Profesional Medan & Sumatera Utara</h2>
+      <p>Jelajahi keindahan Istana Maimun, wisata alam Berastagi, hingga destinasi super prioritas Danau Toba dengan kenyamanan armada Karental Medan.</p>
+    `,
+    popularLocations: ['Bandara Internasional Kualanamu (KNO)', 'Istana Maimun & Masjid Raya', 'Berastagi & Danau Toba', 'CBD Kota Medan'],
+    priceList: [
+      { carCategory: 'MPV Family (Innova Zenix)', lepasKunciRate: 850000, withDriverRate: 1050000 },
+      { carCategory: 'SUV Premium (Fortuner/Pajero)', lepasKunciRate: 1100000, withDriverRate: 1300000 }
+    ]
+  },
+  {
+    slug: 'rental-mobil-semarang',
+    cityName: 'Semarang',
+    province: 'Jawa Tengah',
+    heroTagline: 'Rental Mobil Semarang Murah - Layanan Antar Jemput Bandara Ahmad Yani & Stasiun Tawang',
+    landmarkImage: 'https://images.unsplash.com/photo-1584810359583-96fc3448beaa?auto=format&fit=crop&w=1200&q=80',
+    metaTitle: 'Rental Mobil Semarang - Lepas Kunci & Driver - Karental',
+    metaDescription: 'Sewa mobil Semarang lepas kunci & driver. Layanan gratis antar jemput Lawang Sewu, Kota Lama, Bandara Ahmad Yani, Stasiun Tawang.',
+    articleContent: `
+      <h2>Sewa Mobil Murah & Terpercaya di Semarang</h2>
+      <p>Kebutuhan perjalanan dinas perkantoran Jawa Tengah dan wisata sejarah Kota Lama Lawang Sewu semakin nyaman dengan armada terbaru Karental.</p>
+    `,
+    popularLocations: ['Bandara Ahmad Yani (SRG)', 'Stasiun Semarang Tawang', 'Kawasan Kota Lama & Lawang Sewu', 'Simpang Lima Semarang'],
+    priceList: [
+      { carCategory: 'MPV Family (Innova Zenix)', lepasKunciRate: 800000, withDriverRate: 1000000 },
+      { carCategory: 'Compact City (Honda HR-V)', lepasKunciRate: 650000, withDriverRate: 850000 }
+    ]
+  },
+  {
+    slug: 'rental-mobil-makassar',
+    cityName: 'Makassar',
+    province: 'Sulawesi Selatan',
+    heroTagline: 'Sewa Mobil Makassar & Toraja - Antar Jemput Bandara Sultan Hasanuddin',
+    landmarkImage: 'https://images.unsplash.com/photo-1584441405886-bc91be61e56a?auto=format&fit=crop&w=1200&q=80',
+    metaTitle: 'Rental Mobil Makassar - Lepas Kunci & Driver - Karental',
+    metaDescription: 'Sewa mobil Makassar terpercaya. Antar jemput Bandara Sultan Hasanuddin, Pantai Losari, Benteng Rotterdam, Tana Toraja.',
+    articleContent: `
+      <h2>Layanan Rental Mobil Handal di Makassar</h2>
+      <p>Pusat gerbang ekonomi Indonesia Timur. Karental Makassar menyediakan armada MPV dan SUV terbaik untuk kunjungan bisnis dan wisata kuliner Pantai Losari.</p>
+    `,
+    popularLocations: ['Bandara Sultan Hasanuddin (UPG)', 'Pantai Losari & Center Point Indonesia', 'Benteng Rotterdam', 'Kawasan Industri Makassar (KIMA)'],
+    priceList: [
+      { carCategory: 'MPV Family (Innova Zenix)', lepasKunciRate: 850000, withDriverRate: 1050000 },
+      { carCategory: 'SUV Premium (Fortuner)', lepasKunciRate: 1100000, withDriverRate: 1300000 }
+    ]
   }
 ];
 

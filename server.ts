@@ -63,7 +63,7 @@ let settingsStore: SiteSettings = {
   googleAdsId: '',
   heroTitle: 'Sewa Mobil Premium & Eksklusif di Indonesia',
   heroSubtitle: 'Pusat sewa mobil mewah lepas kunci & dengan sopir VVIP untuk perjalanan bisnis, liburan, dan acara spesial Anda.',
-  heroBackgroundImage: '/vastro_hero_car_1785990005190.jpg',
+  heroBackgroundImage: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=1920&q=80',
   heroCtaText: 'Chat WhatsApp',
   ctaTitle: 'Siap Memulai Perjalanan Anda?',
   ctaSubtitle: 'Pesan mobil impian Anda sekarang dan nikmati pengalaman berkendara tak terlupakan bersama Karental.',

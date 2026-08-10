@@ -22,7 +22,7 @@ import {
   Zap,
   ChevronDown
 } from 'lucide-react';
-import heroCarImage from '../assets/images/vastro_hero_car_1785990005190.jpg';
+import innovaRebornHeroImage from '../assets/images/innova_reborn_hero_1786341288373.jpg';
 
 export const HomePage: React.FC = () => {
   const {
@@ -91,12 +91,12 @@ export const HomePage: React.FC = () => {
         {/* Background Image with Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src={settings?.heroBackgroundImage || heroCarImage}
+            src={settings?.heroBackgroundImage || innovaRebornHeroImage}
             alt="Karental Luxury Rental Mobil"
-            className="w-full h-full object-cover opacity-45 transform scale-105 transition-transform duration-10000 animate-pulse"
+            className="w-full h-full object-cover opacity-100 transform scale-105 transition-transform duration-1000"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/30" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full space-y-10">
